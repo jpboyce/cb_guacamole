@@ -1,2 +1,3 @@
 # cb_guacamole
-A Chef cookbook for installing/configuring Apache Guacamole
+
+A Chef Cookbook for installing and configuring Apache Guacamole on CentOS systems.
