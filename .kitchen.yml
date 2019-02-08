@@ -13,13 +13,16 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: centos7
 
 suites:
   - name: default
     run_list:
       - recipe[guacamole::default]
+      - recipe[guacamole::00_prerequisites]
+      - recipe[guacamole::01_staging]
+      - recipe[guacamole::02_install]
+      - recipe[guacamole::03_configure]
     verifier:
       inspec_tests:
         - test/integration/default
