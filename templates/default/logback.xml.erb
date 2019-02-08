@@ -1,0 +1,27 @@
+<configuration>
+
+    <!-- Appender for stdout -->
+    <appender name="GUAC-STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender for log file -->
+    <appender name="GUAC-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/var/log/guacamole.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log at INFO level -->
+    <root level="info">
+        <appender-ref ref="GUAC-STDOUT"/>
+    </root>
+    <!-- Log at DEBUG level -->
+    <root level="debug">
+        <appender-ref ref="GUAC-FILE"/>
+    </root>
+
+</configuration>

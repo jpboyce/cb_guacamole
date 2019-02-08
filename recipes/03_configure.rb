@@ -34,6 +34,11 @@ template '/etc/guacamole/guacamole.properties' do
 end
 
 # Placeholder for logback.xml file
+template '/etc/guacamole/logback.xml' do
+  source 'logback.xml.erb'
+  mode '0644'
+  action :create
+end
 
 # Placeholder for user auth
 
