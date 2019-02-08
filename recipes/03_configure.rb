@@ -27,7 +27,7 @@
 # Create guacamole.properties file off template and populate
 template '/etc/guacamole/guacamole.properties' do
   source 'guacamole.properties.erb'
-  mode '0755'
+  mode '0644'
   variables(guacd_hostname: node['cb_guacamole']['guacd']['hostname'],
     guacd_port: node['cb_guacamole']['guacd']['port'])
   action :create
@@ -38,3 +38,12 @@ end
 # Placeholder for user auth
 
 # Placeholder for guacd SSL
+
+# Put client file in its place
+remote_file '/var/lib/tomcat/webapps/guacamole.war' do
+  source node['cb_guacamole']['client']['url']
+  owner 'tomcat'
+  group 'tomcat'
+  mode '0644'
+  action :create_if_missing
+end
