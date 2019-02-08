@@ -32,10 +32,11 @@ default['cb_guacamole']['packages']['optional'] = %w( ffmpeg-devel freerdp-devel
 
 # Guacamole source
 default['cb_guacamole']['server']['version'] = '1.0.0'
-default['cb_guacamole']['server']['url'] = "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/1.0.0/source/guacamole-server-#{node['cb_guacamole']['server']['version']}.tar.gz"
+default['cb_guacamole']['server']['url'] = "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/#{node['cb_guacamole']['server']['version']}/source/guacamole-server-#{node['cb_guacamole']['server']['version']}.tar.gz"
 default['cb_guacamole']['server']['checksum'] = 'e50d513f5abb330722f2380d9cd5232a8c8055e646e0ec3bd394a72f46223556'
 default['cb_guacamole']['server']['version'] = '1.0.0'
-default['cb_guacamole']['client']['url'] = "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/1.0.0/source/guacamole-client-#{node['cb_guacamole']['client']['version']}.tar.gz"
+# default['cb_guacamole']['client']['url'] = "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/#{node['cb_guacamole']['server']['version']}/source/guacamole-client-#{node['cb_guacamole']['client']['version']}.tar.gz"
+default['cb_guacamole']['client']['url'] = "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/#{node['cb_guacamole']['server']['version']}/binary/guacamole-#{node['cb_guacamole']['server']['version']}.war"
 default['cb_guacamole']['client']['checksum'] = 'd0519b7706bc3df100bc7b4c0e4eab9404bf5548aab62ccf0f57d2572c736133'
 
 # Guacd settings
