@@ -23,6 +23,7 @@ suites:
       - recipe[guacamole::01_staging]
       - recipe[guacamole::02_install]
       - recipe[guacamole::03_configure]
+      - recipe[guacamole::04_finalise]
     verifier:
       inspec_tests:
         - test/integration/default
