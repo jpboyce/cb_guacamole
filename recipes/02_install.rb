@@ -26,17 +26,15 @@
 
 # Install guacamole server
 bash 'install_guacamole_server' do
-  cwd '/etc/guacamole'
+  cwd "/tmp/guacamole-server-#{node['cb_guacamole']['server']['version']}"
   code <<-EOH
-  ./configure --with-init-dir=/etc/init.d
-  make
-  make install
-  make
+  cd /tmp/guacamole-server-#{node['cb_guacamole']['server']['version']} && ./configure --with-init-dir=/etc/init.d
+  make && make install
   touch install_completed
   ldconfig
   EOH
   action :run
-  not_if {::File.exists?('/etc/guacamole/install_completed')}
+  not_if {::File.exists?("/tmp/guacamole-server-#{node['cb_guacamole']['server']['version']}")}
 end
 
 # Install tomcat server
