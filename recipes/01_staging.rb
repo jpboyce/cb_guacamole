@@ -47,10 +47,9 @@ bash 'extract_guacamole' do
   cwd '/tmp'
   code <<-EOH
   tar -xzf guacamole-server-#{node['cb_guacamole']['server']['version']}.tar.gz
-  cp -r guacamole-server-#{node['cb_guacamole']['server']['version']}/* /etc/guacamole/
   EOH
   action :run
-  not_if { ::File.exists?('/etc/guacamole/configure') }
+  not_if { ::File.exists?("/tmp/guacamole-server-#{node['cb_guacamole']['server']['version']}/configure") }
 end
 
 #Guacamole Client
