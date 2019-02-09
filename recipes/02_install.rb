@@ -34,7 +34,7 @@ bash 'install_guacamole_server' do
   ldconfig
   EOH
   action :run
-  not_if {::File.exists?("/tmp/guacamole-server-#{node['cb_guacamole']['server']['version']}")}
+  not_if {::File.exists?("/tmp/guacamole-server-#{node['cb_guacamole']['server']['version']}/install_completed")}
 end
 
 # Install tomcat server
